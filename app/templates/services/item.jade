@@ -1,0 +1,22 @@
+div.row
+  div.col-lg-3
+    h3.list-group-item-heading #{name}
+  div.col-lg-6
+    span.list-group-item-text #{description}
+  div.col-lg-3
+    .dropdown.pull-right
+      button.btn.dropdown-toggle(type="button", data-toggle="dropdown", class="btn-" + status)
+        span #{statename}
+        span.caret
+      ul.dropdown-menu
+        li
+          a Start
+        li
+          a Stop
+        li
+          a Restart
+        li.divider
+        li
+          a View Log
+        li
+          a Clear Log

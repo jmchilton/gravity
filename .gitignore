@@ -1,0 +1,14 @@
+.DS_Store
+.venv
+
+
+node_modules
+bower_components
+access_logs.db
+npm-debug.log
+
+public
+production
+coverage
+coverage.html
+app/scripts/config.coffee

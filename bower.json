@@ -1,0 +1,21 @@
+{
+  "name": "backbone-base",
+  "authors": [
+    "Marat Fakhreev <marat.fakhreev@flatstack.com>",
+    "Anton Gudkov <anton.gudkov@flatstack.com>",
+    "Timur Vafin <timur.vafin@flatstack.com>",
+    "Ildus Sadykov <ildus.sadykov@flatstack.com>"
+  ],
+  "description": "backbone base application",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "marionette": "~2.0.3",
+    "bootstrap": "~3.2.0",
+    "backbone-route-filter": "~0.1.1",
+    "backbone.stickit": "~0.8.0",
+    "backbone-validation": "~0.9.1"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
+  }
+}
