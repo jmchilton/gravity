@@ -1,6 +1,6 @@
 div.row
   div.col-lg-3
-    h3.list-group-item-heading #{name}
+    h3.list-group-item-heading #{name}:#{group}
   div.col-lg-6
     span.list-group-item-text #{description}
   div.col-lg-3
@@ -9,14 +9,12 @@ div.row
         span #{statename}
         span.caret
       ul.dropdown-menu
-        li
+        li(action="start")
           a Start
-        li
+        li(action="stop")
           a Stop
-        li
-          a Restart
         li.divider
-        li
+        li(action="viewlog")
           a View Log
-        li
+        li(action="clearlog")
           a Clear Log
