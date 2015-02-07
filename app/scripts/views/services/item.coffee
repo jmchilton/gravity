@@ -1,6 +1,8 @@
 App = require('scripts/application')
 routes = require('scripts/helpers/routes')
 template = require('templates/services/item')
+ServiceLog = require('scripts/models/service_log')
+ServicesLogView = require('scripts/views/services/log')
 
 class ServicesItemView extends Marionette.ItemView
   tagName: 'a'
@@ -27,6 +29,8 @@ class ServicesItemView extends Marionette.ItemView
   events:
     'click [action=start]': 'start'
     'click [action=stop]': 'stop'
+    'click [action=stdoutlog]': 'stdout'
+    'click [action=stderrlog]': 'stderr'
 
   start: (e) ->
     @model.start()
@@ -34,5 +38,18 @@ class ServicesItemView extends Marionette.ItemView
   stop: (e) ->
     @model.stop()
 
+  stdout: (e) ->
+    console.log(e)
+    @model.stdout (contents) ->
+      model = new ServiceLog({"contents": contents})
+      view = new ServicesLogView({model: model})
+      App.modal.show view
+
+  stderr: (e) ->
+    console.log(e)
+    @model.stderr (contents) ->
+      model = new ServiceLog({"contents": contents})
+      view = new ServicesLogView({model: model})
+      App.modal.show view
 
 module.exports = ServicesItemView

@@ -1,12 +1,31 @@
+Marionette = require('marionette')
+
 App = new Marionette.Application
+
+class ModalRegion extends Marionette.Region
+  el: "#modal"
+
+  onShow: () ->
+    @showModal(this)
+
+  getEl: (selector) ->
+    $(selector).on("hidden", this.close)
+
+  showModal: (view) ->
+    view.on("close", @hideModal, this)
+    this.$el.modal('show')
+
+  hideModal: () ->
+    this.$el.modal('hide')
+
 
 App.addRegions
   navigationRegion: '#navigation_region'
   mainRegion: '#main_region'
+  modal: ModalRegion
 
 App.navigate = (route, options) ->
   options or= {}
-  console.log route
   Backbone.history.navigate(route, options)
 
 App.on 'start', ->

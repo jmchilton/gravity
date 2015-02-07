@@ -24,5 +24,18 @@ class Service extends AppModel
       wait: true
     )
 
+  stdout: (callback) ->
+    $.ajax(@url() + "/stdout", {
+      'type': 'GET'
+      'processData': false
+      'success': callback
+    })
+
+  stderr: (callback) ->
+    $.ajax(@url() + "/stderr", {
+      'type': 'GET'
+      'processData': false
+      'success': callback
+    })
 
 module.exports = Service

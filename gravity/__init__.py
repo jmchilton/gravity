@@ -56,6 +56,8 @@ def update_state(name):
         process.start()
     elif new_state == "stop":
         process.stop()
+    # TODO: update process before as_dict
+    return jsonify(process.as_dict())
 
 
 def _get_log(name, log_type):
